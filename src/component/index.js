@@ -7,7 +7,7 @@ const app = ({store}) => (
   <div>
     <DevTool />
     <h1>Todo app</h1>
-    <Todo todoList={store.todoList}/>
+    <Todo store={store}/>
   </div>
 )
 
