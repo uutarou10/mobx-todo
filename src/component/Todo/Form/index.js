@@ -21,10 +21,14 @@ const Form = inject('view', 'todo')(
           onChange={e => view.setDraftDescription(e.target.value)}
         />
       </label>
-      <button onClick={() => {
-        todo.addTask(view.draftTitle, view.draftDescription)
-        view.resetForm();
-      }}>ADD</button>
+      <button
+        onClick={() => {
+            todo.addTask(view.draftTitle, view.draftDescription)
+            view.resetForm();
+          }
+        }
+        disabled={view.isValidForm}
+      >ADD</button>
     </div>
   ))
 );

@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
 
 class ViewStore {
   @observable draftTitle = '';
@@ -10,6 +10,10 @@ class ViewStore {
 
   @action setDraftDescription(description) {
     this.draftDescription = description;
+  }
+
+  @computed get isValidForm() {
+    return !(this.draftTitle.length > 0 && this.draftDescription.length > 0)
   }
 
   @action resetForm() {
