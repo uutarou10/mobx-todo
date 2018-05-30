@@ -11,6 +11,11 @@ class ViewStore {
   @action setDraftDescription(description) {
     this.draftDescription = description;
   }
+
+  @action resetForm() {
+    this.draftTitle = "";
+    this.draftDescription = "";
+  }
 }
 
 export default ViewStore;
