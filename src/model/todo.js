@@ -1,35 +1,13 @@
-import { observable, action, autorun } from "mobx";
+import { observable, action } from "mobx";
+import { bufferToggle } from "rxjs/operator/bufferToggle";
 
 class Todo {
-  constructor(id = 0, title, description, isDone = false) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-
-    autorun(() => {
-      console.log("state changed!", this.isDone);
-    })
-  }
-
-  @observable id = 0;
-  @observable title = "";
-  @observable description = "";
+  @observable id;
+  @observable title;
+  @observable description;
   @observable isDone = false;
 
-  @action
-  setTitle(title) {
-    this.title = title;
-  }
-
-  @action
-  setDescription(description) {
-    this.description = description;
-  }
-
-  @action
-  setCompleted(isDone) {
-    this.isDone = isDone;
+  @action toggle() {
+    this.isDone = !this.isDone;
   }
 }
-
-export default Todo;

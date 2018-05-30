@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import RootComponent from './component'
-import Store from './store';
-import Todo from './model/todo';
+import App from './component';
+import { Provider } from 'mobx-react';
+import { initStores } from './store';
 
-const store = new Store();
-store.todoList.addTodo(new Todo(0, 'hoge', 'fuga', true))
-store.todoList.addTodo(new Todo(1, 'hoge', 'fuga', true))
+const stores = initStores();
 
 render(
-  <RootComponent store={store} />,
+  <Provider {...stores}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );

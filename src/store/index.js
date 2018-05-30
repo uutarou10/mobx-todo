@@ -1,14 +1,7 @@
-import TodoList from "../model/todoList";
-import View from "./view";
+import TodoStore from "./todoStore";
+import ViewStore from "./viewStore";
 
-class Store {
-  todoList;
-  viewStore;
-
-  constructor() {
-    this.todoList = new TodoList();
-    this.viewStore = new View();
-  }
-}
-
-export default Store;
+export const initStores = () => ({
+  todo: new TodoStore(),
+  view: new ViewStore()
+})
